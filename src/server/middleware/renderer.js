@@ -80,7 +80,8 @@ export default (store) => (req, res, next) => {
         const helmet = Helmet.renderStatic();
         
         htmlData = replaceMetaTags(htmlData);
-
+        
+        res.type('text/html');
         // now inject the rendered app into our html and send it to the client
         return res.send(
             htmlData
